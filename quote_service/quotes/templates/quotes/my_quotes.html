@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Мои цитаты{% endblock %}
+
+{% block content %}
+<h2>Мои цитаты</h2>
+
+{% if quotes %}
+  <ul>
+    {% for quote in quotes %}
+      <li style="margin-bottom: 1em;">
+        <p>"{{ quote.text }}"</p>
+        <p><i>{{ quote.source }} ({{ quote.source_type }})</i></p>
+        <p>Приоритет: {{ quote.priority }}</p>
+        <p>
+          Лайков: {{ quote.likes.count }} |
+          Дизлайков: {{ quote.dislikes.count }} |
+          Просмотров: {{ quote.views }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Пока не добавлена ни одна цитата. <a href="{% url 'add_quote' %}">Добавить первую</a></p>
+{% endif %}
+{% endblock %}

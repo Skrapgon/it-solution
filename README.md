@@ -16,3 +16,22 @@
 5. Приложение должно быть доступным для проверки. Можно захостить на https://www.pythonanywhere.com/, поделиться через ngrok или воспользоваться иным способом
 
 Приветствуются дополнительные идеи и решения, которые не указаны в ТЗ и ему не противоречат
+
+
+## Установка и запуск
+1. Клонировать репозиторий - `git clone https://github.com/Skrapgon/it-solution.git`
+2. Сменить текущую директорию - `cd it-solution`
+3. (Опциально) Создать и активировать виртуальное окружение:
+
+    Создать - `python -m venv myenv`
+
+    Активировать окружение (Windows) - `myenv\Scripts\activate.bat`
+
+    Активировать окружение (Linux/macOS) - `source myenv/bin/activate`
+
+4. Установить зависимости из `requirements.txt` - `pip install -r requirements.txt`
+5. Сменить дирректорию - `cd quote_service`
+6. Выполнить следующие команды:
+    * `python manage.py makemigrations` - создать миграцию на основе изменений в models.py
+    * `python manage.py migrate` - применить миграцию к БД
+    * `python manage.py runserver` - запустить приложение (запущенное приложение будет доступно по http://127.0.0.1:8000/)

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Добавить цитату</h2>
+<form method="post">
+  {% csrf_token %}
+  <textarea name="text" required placeholder="Текст цитаты"></textarea><br>
+
+  <input type="text" name="source" placeholder="Название произведения" required><br>
+
+  <label>Тип произведения:</label>
+  <select name="source_type" required>
+    <option value="book">Книга</option>
+    <option value="movie">Фильм</option>
+  </select><br>
+
+  <label>Приоритет:</label>
+  <input type="number" name="priority" min="1" max="25" value="1"><br>
+
+  <button type="submit">Сохранить</button>
+</form>
+{% endblock %}

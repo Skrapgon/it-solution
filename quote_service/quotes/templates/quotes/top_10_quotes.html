@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Топ 10 цитат{% endblock %}
+
+{% block content %}
+<h2>Топ 10 цитат по лайкам</h2>
+
+{% if quotes %}
+  <ul>
+    {% for quote in quotes %}
+      <li>
+        "{{ quote.text }}" — <i>{{ quote.source }} ({{ quote.source_type }})</i>
+        <br>
+        Лайки {{ quote.likes_count }} | Дизлайки {{ quote.dislikes.count }} | Просмотры {{ quote.views }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Цитат пока нет.</p>
+{% endif %}
+{% endblock %}

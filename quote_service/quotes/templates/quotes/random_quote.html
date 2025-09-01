@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Случайная цитата</h2>
+<p>"{{ quote.text }}"</p>
+<p><i>{{ quote.source }} ({{ quote.source_type }})</i></p>
+<p>Автор: {{ quote.user.username }}</p>
+<p>Лайков: {{ quote.likes.count }} |
+Дизлайков: {{ quote.dislikes.count }} |
+Просмотров: {{ quote.views }}</p>
+
+<a href="{% url 'like_quote' quote.pk %}">Лайк</a>
+<a href="{% url 'dislike_quote' quote.pk %}">Дизлайк</a>
+
+<a href="{% url 'random_quote' %}">Следующая цитата</a>
+{% endblock %}
